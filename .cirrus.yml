@@ -5,15 +5,15 @@ task:
     USE_CCACHE: 1
     CIRRUS_WORKING_DIR: /tmp/$CIRRUS_REPO_NAME
   clone_script:
-    - repo init --depth=1 -u git://github.com/AospExtended/manifest.git -b 11.x || true
+    - repo init -u https://github.com/LineageOS/android.git -b lineage-20.0 || true
   sync_script:
     - rm -rf .repo/local_manifests || true
-    - git clone https://github.com/Apon77Lab/android_.repo_local_manifests.git --depth 1 -b aex .repo/local_manifests
-    - repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all)
+    - git clone https://gitlab.com/R9Lab/Manifest.git --depth 1 -b LineageOS-13 .repo/local_manifests
+    - repo sync
   build_script:
-    - source build/envsetup.sh
-    - lunch aosp_mido-user
-    - m aex -j$(nproc --all)
+    - . build/envsetup.sh
+    - brunch lava
+    - m lava -j$(nproc --all)
   ccache_stats_script:
     - ccache -s
   upload_script: |
@@ -22,4 +22,4 @@ task:
       # 14 days, 10 GB limit
     }
 
-    up out/target/product/mido/*.zip
+    up out/target/product/lava/*.zip
