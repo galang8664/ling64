@@ -4,14 +4,14 @@ set -e
 set -x
 
 # sync rom
-repo init -u https://github.com/LineageOS/android.git -b lineage-20.0
-git clone https://gitlab.com/R9Lab/Manifest.git --depth 1 -b LineageOS-13 .repo/local_manifests
+repo init -u https://github.com/Evolution-X/manifest -b tiramisu
+git clone git clone https://github.com/galang8664/local_manifest.git --depth 1 -b evoxr .repo/local_manifests
 repo sync
 
 # build rom
 . build/envsetup.sh
-brunch lava
-m aex -j$(nproc --all)
+lunch evolution_lancelot-userdebug
+mka evolution
 
 # upload rom
 up(){
