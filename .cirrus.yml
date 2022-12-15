@@ -5,11 +5,9 @@ task:
     USE_CCACHE: 1
     CIRRUS_WORKING_DIR: /tmp/$CIRRUS_REPO_NAME
   clone_script:
-    - sudo apt reinstall python3-pip
-    - sudo add-apt-repository universe
-    - sudo add-apt-repository multiverse
-    - sudo apt-get update
-    - sudo apt install python
+    - df -h
+    - free -h
+    - python
     - mkdir ~/bin && PATH=~/bin:$PATH && curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo && chmod a+x ~/bin/repo
     - repo init -u https://github.com/Evolution-X/manifest -b tiramisu || true
   sync_script:
