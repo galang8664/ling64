@@ -4,10 +4,12 @@ env: # Environment variables to pass to all tasks
 
     # For rclone with google drive or any cloud! After first commit pushing, login to https://cirrus-ci.com , click top left corner 3 dot menu, click repository(yourname/aosp-builder) > Repository Settings > Secured Variables > enter content of ~/.config/rclone/rclone.conf (from pc where you setup rclone) > ENCRYPT, copy that ENCRYPTED hash
     # ENCRYPTED variables is unique for every repository, so you cant use my one, create you rclone config https://rclone.org/drive/#making-your-own-client-id
-    rclone_config: "ENCRYPTED[!38df4e4e68670c5ec36174afbda418ebbc572352d0453364394b89c9181dcb0043192587b09366d90e02567980b29824!]"
+    rclone_config: "ENCRYPTED[b855a30e810e3d468eef0c3826773f307be64adfef8bdaa174f990e9034367783ab2f2cbaf43c7d5b244b89d7a66cab8]"
 
 task:
-    name: aosp # Project name
+    name: Test # Project name
+    skip: $CIRRUS_BRANCH == 'main'
+    only_if: $CIRRUS_REPO_OWNER == 'galang8664'
     timeout_in: 120m # Otherwise it will timeout at 60m automatically, 120m highest in free account
     container:
       image: apon77/aosp:latest # It has built-in setup environment + repo, aria2, rclone, pigz, username ci, and email ci@ci.ci [You can use your own docker image if you want, or you can use this one too!]
