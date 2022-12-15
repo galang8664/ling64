@@ -5,15 +5,15 @@ task:
     USE_CCACHE: 1
     CIRRUS_WORKING_DIR: /tmp/$CIRRUS_REPO_NAME
   clone_script:
-    - repo init -u https://github.com/LineageOS/android.git -b lineage-20.0 || true
+    - repo init -u https://github.com/Evolution-X/manifest -b tiramisu || true
   sync_script:
     - rm -rf .repo/local_manifests || true
-    - git clone https://gitlab.com/R9Lab/Manifest.git --depth 1 -b LineageOS-13 .repo/local_manifests
+    - git clone https://github.com/galang8664/local_manifest.git --depth 1 -b evoxr .repo/local_manifests
     - repo sync
   build_script:
     - . build/envsetup.sh
-    - brunch lava
-    - m lava -j$(nproc --all)
+    - lunch evolution_lancelot-userdebug
+    - mka evolution
   ccache_stats_script:
     - ccache -s
   upload_script: |
