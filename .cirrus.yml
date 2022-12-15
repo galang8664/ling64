@@ -30,7 +30,7 @@ task:
     - grep _laurel_sprout $CIRRUS_WORKING_DIR/build_rom.sh > /dev/null && device=laurel_sprout
     - grep _GM8_sprout $CIRRUS_WORKING_DIR/build_rom.sh > /dev/null && device=GM8_sprout
     - grep _maple_dsds $CIRRUS_WORKING_DIR/build_rom.sh > /dev/null && device=maple_dsds
-    - your_telegram_id=@ROM_builders_junk
+    - your_telegram_id=@builderCi
     - show=$(cat $CIRRUS_WORKING_DIR/build_rom.sh)
     - curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" -d "text=<code>$device-$rom_name</code> Started
       
@@ -242,7 +242,7 @@ task:
     - grep _laurel_sprout $CIRRUS_WORKING_DIR/build_rom.sh > /dev/null && device=laurel_sprout
     - grep _GM8_sprout $CIRRUS_WORKING_DIR/build_rom.sh > /dev/null && device=GM8_sprout
     - grep _maple_dsds $CIRRUS_WORKING_DIR/build_rom.sh > /dev/null && device=maple_dsds
-    - your_telegram_id=@ROM_builders_channel
+    - your_telegram_id=@builderCi
     - curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" -d "text=<code>$device-$rom_name</code> Succeed
       
       https://cirrus-ci.com/build/$CIRRUS_BUILD_ID" -d "chat_id=${your_telegram_id}" -d "parse_mode=HTML"
