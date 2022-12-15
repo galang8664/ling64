@@ -5,6 +5,7 @@ task:
     USE_CCACHE: 1
     CIRRUS_WORKING_DIR: /tmp/$CIRRUS_REPO_NAME
   clone_script:
+    - mkdir ~/bin && PATH=~/bin:$PATH && curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo && chmod a+x ~/bin/repo
     - repo init -u https://github.com/Evolution-X/manifest -b tiramisu || true
   sync_script:
     - rm -rf .repo/local_manifests || true
