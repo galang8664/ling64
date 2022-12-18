@@ -15,8 +15,7 @@ env: # Environment variables to pass to all tasks
     known_hosts: "ENCRYPTED[85e9051458da467ef24cc83fe500c4486348ad96c6f95c2d3a1ae536296a0f6eea3eba50c739d0dc1961d38034437197]"
     user_email: "jasonbright2709@gmail.com"
     user_name: "Chatur27"
-
-  task:
+task:
     name: aosp # Project name
     skip: $CIRRUS_BRANCH == 'main'
     only_if: $CIRRUS_REPO_OWNER == 'galang8664'
