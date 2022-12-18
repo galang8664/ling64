@@ -14,11 +14,3 @@ task:
         image: apon77/aosp:latest
         cpu: 2
         memory: 4G
-
-  env_script:
-    - env
-  show_script:
-    - cat $CIRRUS_WORKING_DIR/build_rom.sh
-  test_script:
-    - set -e
-    - curl -Ls https://raw.githubusercontent.com/ROM-builders/temporary/main/test.sh | bash
