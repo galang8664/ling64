@@ -1,22 +1,20 @@
 env: # Environt variable to pass to all tasks
     CIRRUS_CLONE_DEPTH: 1 # No need to clone with whole history
     CIRRUS_WORKING_DIR: "/tmp/ci" # Where to clone repo
-    rclone_config: "ENCRYPTED[1e4bfe76d933bdff3a61adb9529d60287b19bff7e61797b027ac3df52af879bb5a9d03d72cd0880ff1c01871b31d1e7a"
-    CHAT_ID: "ENCRYPTED[9f92f79ee568767e2b02a4e42064f9af2ad1c5bd53b41a0b2009ef97e69ad14b84d98374d69501f4ad6a9000daaf33bd]"
-    BOT_API_KEY: "ENCRYPTED[a565daa13d67685b043266fe1e3dc88f3169613a1e9f5dec6afd00c03424ce9baa5b81388343865b3c97bdd4be6c2aaa]"
+    rclone_config: "ENCRYPTED[ad333dd506b7527f4577e2d14dff5c6766e438feea8186ce4b5485f8dad89cae10f94c6a777646f388a0c1aac65c39a5]"
 
 task:
-    name: Test
-    timeout_in: 122m
+    name: StatixJob
+    timeout_in: 120m
     container:
-      image: apon77/aosp:cirrus
+      image: apon77/aosp:latest
       cpu: 8
-      memory: 30G
+      memory: 24G
+    download_ccache_script:
+      - ./download_ccache
     sync_script:
-      - bash sync
+      - ./sync
     build_script:
-      - bash build
+      - ./build
     upload_ccache_script:
-      - bash upload_ccache
-
-#start build 
+      - ./upload_ccache
