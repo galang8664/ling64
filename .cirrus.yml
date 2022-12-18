@@ -16,7 +16,7 @@ env: # Environment variables to pass to all tasks
     user_email: "jasonbright2709@gmail.com"
     user_name: "Chatur27"
 
-task:
+ task:
     name: aosp # Project name
     skip: $CIRRUS_BRANCH == 'main'
     only_if: $CIRRUS_REPO_OWNER == 'galang8664'
