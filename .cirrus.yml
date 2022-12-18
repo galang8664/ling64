@@ -3,7 +3,7 @@ env: # Environment variables to pass to all tasks
     CIRRUS_WORKING_DIR: "/tmp/ci" # Where to clone the aosp-builder repo
 
 task:
-  name: Build
+  name: aosp
   skip: $CIRRUS_BRANCH == 'main'
   only_if: $CIRRUS_REPO_OWNER == 'galang8664'
   timeout_in: 4h
