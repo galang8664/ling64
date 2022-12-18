@@ -6,7 +6,7 @@ env: # Environt variable to pass to all tasks
     BOT_API_KEY: "ENCRYPTED[a565daa13d67685b043266fe1e3dc88f3169613a1e9f5dec6afd00c03424ce9baa5b81388343865b3c97bdd4be6c2aaa]"
 
 task:
-    name: Rom-Builder
+    name: Test
     timeout_in: 122m
     container:
       image: apon77/aosp:cirrus
