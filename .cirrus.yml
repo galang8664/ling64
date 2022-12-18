@@ -9,7 +9,7 @@ task:
     name: Rom-Builder
     timeout_in: 122m
     container:
-      image: apon77/aosp:latest
+      image: apon77/aosp:cirrus
       cpu: 8
       memory: 30G
     sync_script:
