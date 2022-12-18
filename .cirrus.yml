@@ -17,7 +17,7 @@ env: # Environment variables to pass to all tasks
     user_name: "Chatur27"
     
 task:
-    name: aosp # Project name
+    name: aosp # Project names
     only_if: $CIRRUS_REPO_OWNER == 'galang8664'
     timeout_in: 120m # Otherwise it will timeout at 60m automatically, 120m highest in free account
     persistent_worker:
